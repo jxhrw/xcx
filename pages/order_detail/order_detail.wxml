@@ -1,0 +1,100 @@
+<!--pages/order_detail/order_detail.wxml-->
+<view class="order_detail">
+    <view class="status">
+        <view class="dadnjad">
+            <view class="s_txt">{{statusShow}}</view>
+            <view class="s_desc" wx:if="{{payExpireTimeShow!=''}}">{{payExpireTimeShow}}</view>
+        </view>
+    </view>
+    <view class="sgAs">
+        <view class="address_name_mobile">
+            <view class="address_name">{{receiveName}}</view>
+            <text>{{receivePhone}}</text>
+        </view>
+        <view class="address_location">{{receiveAddress}}</view>
+    </view>
+    <view class="info">
+        <view class="goods_info">
+            <image class="good_img" src="{{pic}}" mode="aspectFill" lazy-load="true"></image>
+            <view class="good_int">
+                <text class="good_name">{{skuName}}</text>
+                <view class="info_det">
+                    <text class="good_num">数量 {{num}} </text>
+                    <text class="good_price">¥ {{unitPrice}} </text>
+                </view>
+            </view>
+        </view>
+        <view class="priceInfo">
+            <view class="li">
+                <text class="numTxt">商品金额</text>
+                <text class="priceTxt">¥ {{orderPrice}} </text>
+            </view>
+            <!-- <view class="li">
+                <text class="numTxt">活动优惠</text>
+                <text class="priceTxt">¥ 27400.00 </text>
+            </view> -->
+            <view class="li">
+                <text class="numTxt">运费</text>
+                <text class="priceTxt">¥ {{transportFee}} </text>
+            </view>
+        </view>
+        <view class="i_bottom">
+            总付款 <text>¥ {{orderPrice}} </text>
+        </view>
+    </view>
+    <view class="pay_sattus">
+        <view class="li">
+            <text>订单编号</text>
+            <text>{{orderNo}} </text>
+        </view>
+        <view class="li">
+            <text>下单时间</text>
+            <text>{{dateCreateShow}}</text>
+        </view>
+        <view class="li">
+            <text>支付方式</text>
+            <text>微信支付</text>
+        </view>
+        <!-- <view class="li">
+            <text>支付方式</text>
+            <text>线下养护/快递到付</text>
+        </view> -->
+    </view>
+    <view class="tpBox">
+        <view class="tp_tlt">*有表北京养护中心邮寄地址</view>
+        <view class="tp_txt">地址：北京市朝阳区尚都国际中心1012</view>
+        <view class="tp_txt">电话：17710476600</view>
+        <view class="tp_txt">收件人：朱先生</view>
+    </view>
+    <view class="tpBox" wx:if="{{remark}}">
+        <view class="tp_tlt">备注</view>
+        <view class="tp_txt">{{remark}}</view>
+    </view>
+    <view class="footerBox" wx:if="{{status=='PAY' || status=='RECEIVE' || isMainTain || mailNo }}">
+        <view class="gradient"></view>
+        <view class="footer">
+            <button class="order_cz" size="mini" plain="true" bindtap="cancelOrder" wx:if="{{status=='PAY'}}">取消订单</button>
+            <button class="order_cz " size="mini" plain="true" bindtap="goOnPay" wx:if="{{status=='PAY'}}">继续支付</button>
+            <button class="order_cz" size="mini" plain="true" bindtap="watchLogistics" wx:if="{{mailNo}}">查看物流</button>
+            <button class="order_cz" size="mini" plain="true" bindtap="myYhu" wx:if="{{isMainTain}}">我的养护</button>
+            <button class="order_cz" size="mini" plain="true" bindtap="makeSureGoods" wx:if="{{status=='RECEIVE'}}">确认收货</button>
+        </view>
+    </view>
+</view>
+
+<view class="modalDlg" bindtap="closeDlg" hidden="{{!dialog}}">
+    <view class="dlgContent" catchtap="openDlg">
+        <view class="log_name">
+            {{mailInfo.expressCodeShow}}：{{mailInfo.expressMailNo}}
+        </view>
+        <scroll-view class="log_list" scroll-y="true" scroll-top="0">
+            <view class="l_log" wx:for="{{mailInfo.orderExpressDetailVOs}}" wx:key="*this">
+                <view>{{item.detail}}</view>
+                <view>{{item.timeShow}}</view>
+            </view>
+        </scroll-view>
+        <view class="log_btn">
+            <button class="order_cz another" size="mini" plain="true" catchtap="closeDlg">关闭</button>
+        </view>
+    </view>
+</view>

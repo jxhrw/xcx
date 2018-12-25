@@ -1,0 +1,73 @@
+<!--pages/order_pay/order_pay.wxml-->
+<view class="order_pay">
+    <!-- <view class="sgAs">
+    
+  </view> -->
+    <navigator class="sgAs" url="../address/address?target=choose">
+        <view wx:if="{{!btnShow}}" class="addressDetail">
+            <view class="address_name_mobile">
+                <view class="address_name">{{addInfo.person}}
+                    <text class="icon_name" wx:if="{{addInfo.deft == '1'}}">默认</text>
+                </view>
+                <text class="address_mobile">{{addInfo.phone}}</text>
+            </view>
+            <view class="address_location">{{addInfo.provinceShow}}{{addInfo.cityShow}}{{addInfo.countryShow}}{{addInfo.address}}
+            </view>
+        </view>
+        <view wx:else class="add_ress">
+            <button size="mini" plain="true">请添加收货地址</button>
+        </view>
+    </navigator>
+    <view class="goodsInfo">
+        <view class="imgBox">
+            <image class="img_left" src="{{sku.picPath}}" mode="aspectFill" lazy-load="true"></image>
+            <view class="img_right">
+                <text class="proName">{{sku.skuType}}</text>
+                <text class="proPrice">￥ {{sku.price}}</text>
+            </view>
+        </view>
+        <view class="numBox">
+            <text class="numTxt">购买数量</text>
+            <view class="numBtn">
+                <button class="btn1 btn_r" size="mini" plain="true" bindtap="changeNum" data-type="rec">-</button>
+                <input class="inpt" value="{{num}}" type="number" bindinput="inputNum"></input>
+                <button class="btn1 btn_a" size="mini" plain="true" bindtap="changeNum" data-type="add">+</button>
+            </view>
+        </view>
+        <!-- <view class="freightBox">
+          <text class="numTxt">运费</text>
+          <text class="standard">查看运费标准</text>
+          <view class="freightBtn">
+              <button class="btn2 {{freightClass=='on'?'on':''}}" size="mini" plain="true">线下送养</button>
+              <button class="btn2 {{freightClass=='off'?'on':''}}" size="mini" plain="true">快递到付</button>
+          </view>
+      </view> -->
+        <view class="remarkBox">
+            <text class="numTxt">备注</text>
+            <textarea class="remarkArea" value="{{remark}}" name="" bindinput="remarkChange"></textarea>
+        </view>
+    </view>
+    <view class="priceInfo">
+        <view class="li">
+            <text class="numTxt">商品金额</text>
+            <text class="priceTxt">¥ {{sku.price*num}}</text>
+        </view>
+        <!-- <view class="li">
+          <text class="numTxt">活动优惠</text>
+          <text class="priceTxt">¥ 27400.00 </text>
+      </view> -->
+        <view class="li">
+            <text class="numTxt">运费</text>
+            <text class="priceTxt">¥ 0 </text>
+        </view>
+    </view>
+    <view class="footerBox">
+        <view class="gradient"></view>
+        <view class="footer">
+            <view class="footer_price">实付：
+                <text>￥ {{sku.price*num}}</text>
+            </view>
+            <button class="buyBtn" disabled="{{!btnClick}}" bindtap="orderCreate">确认支付</button>
+        </view>
+    </view>
+</view>

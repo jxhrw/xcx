@@ -1,0 +1,77 @@
+/* pages/myCur/myCur.wxss */
+page {
+    min-height: 100%;
+    background: #FAFAFA;
+}
+
+.myCur {
+    padding: 22rpx 30rpx;
+}
+
+.baseInfo {
+    background: #fff;
+    padding: 30rpx 35rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.baseInfo image {
+    width: 165rpx;
+    height: 165rpx;
+    background: rgba(250, 250, 250, 1);
+    border-radius: 16rpx;
+}
+
+.info_desc {
+    width: 425rpx;
+    line-height: 49rpx;
+    font-size: 24rpx;
+    font-weight: 500;
+    color: rgba(51, 51, 51, 1);
+}
+.curInfo{
+    background: #fff;
+    padding: 40rpx 43rpx;
+    font-size: 24rpx;
+    color:rgba(51,51,51,1);
+    margin-top: 22rpx;
+}
+.cur_title{
+    font-weight:bold;
+}
+.cur_base{
+    font-weight:400;
+    margin-top: 20rpx;
+    line-height:30rpx;
+    /* display: flex;
+    justify-content: space-between; */
+}
+.cur_base text{
+  display: block;
+  margin-top: 6rpx;
+}
+.cur_img{
+    margin-top: 80rpx;
+    overflow: hidden;
+    zoom: 1;
+}
+.left{
+    width: 280rpx;
+    float: left;
+}
+.right{
+    width: 280rpx;
+    float: right;
+}
+.kind_name{
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10rpx;
+}
+.cur_img image{
+    width:280rpx;
+height:280rpx;
+background:rgba(245,246,246,1);
+margin-top: 20rpx;
+}

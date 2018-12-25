@@ -1,0 +1,80 @@
+/* pages/address_edit/address_edit.wxss */
+page{
+    background: #FAFAFA;
+    height: 100%;
+}
+.address_edit{
+    padding: 20rpx 0 120rpx 0;
+}
+.myInfo{
+    background: #fff;
+    border-bottom: 1rpx solid #f5f6f6;
+    padding: 0 30rpx;
+}
+.myInfoLi {
+    
+    border-bottom: 1rpx solid #f5f6f6;
+}
+.myInfoLi input {
+    height: 90rpx;
+    width: 100%;
+    font-size: 28rpx;
+    border: none;
+    outline: none;
+    color: #000;
+}
+.myInfoLi text {
+    box-sizing: border-box;
+    font-size: 28rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    padding-right: 50rpx;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.right_arrow{
+    background: url(https://youwatch.oss-cn-beijing.aliyuncs.com/app/arrow_right_gray.png) no-repeat center right/12rpx;
+}
+.myInfoLi text.on{
+    color: #000;
+}
+.isDefault{
+    height: 100rpx;
+    background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 30rpx;
+    margin-top: 16rpx;
+}
+.isDefault text{
+    font-size: 28rpx;
+}
+
+.btn_add_address{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    background: linear-gradient(45deg,#D6AC8E,#c88e64);
+    width: 100%;
+    height: 100rpx;
+    font-size: 28rpx;
+    line-height: 100rpx;
+    font-weight: 400;
+    color: #fff;
+    border-radius: 0;
+}
+.btn_add_address::after {
+    border-radius: 0;
+    border: none;
+}

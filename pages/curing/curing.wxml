@@ -1,0 +1,167 @@
+<!--pages/curing/curing.wxml-->
+<view class="curing">
+    <view class="tabBox">
+        <text class="{{type=='all'?'on':''}}" bindtap="chooseType" data-type="all">全部</text>
+        <text class="{{type=='curing'?'on':''}}" bindtap="chooseType" data-type="curing">养护中</text>
+        <text class="{{type=='finish'?'on':''}}" bindtap="chooseType" data-type="finish">已完成</text>
+    </view>
+
+    <view class="scrollBox">
+        <block wx:for="{{allTypes}}" wx:key="*this" wx:for-item="thisType">
+            <view class="scrollArea" hidden="{{!(type==thisType.type)}}" data-type="{{thisType.type}}">
+                <view class="order_this" hover-stop-propagation="false" wx:for="{{thisType.orderList}}" wx:key="*this"
+                    catchtap="goOnPay" data-order="{{item.orderNo}}" data-index="{{index}}" data-type="{{thisType.type}}">
+                    <view class="order_num">
+                        <text class="o_num">订单号：{{item.orderNo}}</text>
+                        <text class="o_status">{{item.statusShow}}</text>
+                    </view>
+                    <view class="goods_info">
+                        <image class="good_img" src="{{item.pic}}" mode="aspectFill" lazy-load="true"></image>
+                        <view class="good_int">
+                            <text class="good_name">{{item.productName}}</text>
+                            <text class="good_price">¥ {{item.unitPrice}} </text>
+                            <text class="good_num">数量 1 </text>
+                        </view>
+                    </view>
+                    <view class="goods_total">共{{item.num}}件 合计：￥{{item.realPay}}（含运费{{item.transportFee}}元）</view>
+                    <view class="btnBox" wx:if="{{item.status=='PAY' || item.status=='RECEIVE' || item.isMainTain || item.mailNo }}">
+                        <button class="order_cz" size="mini" plain="true" catchtap="cancelOrder" wx:if="{{item.status=='PAY'}}"
+                            data-order="{{item.orderNo}}" data-index="{{index}}" data-type="{{thisType.type}}">取消订单</button>
+                        <button class="order_cz " size="mini" plain="true" catchtap="goOnPay" wx:if="{{item.status=='PAY'}}"
+                            data-order="{{item.orderNo}}" data-index="{{index}}" data-type="{{thisType.type}}">去支付</button>
+                        <button class="order_cz" size="mini" plain="true" catchtap="watchLogistics" wx:if="{{item.mailNo}}"
+                            data-order="{{item.orderNo}}" data-index="{{index}}" data-type="{{thisType.type}}">查看物流</button>
+                        <button class="order_cz" size="mini" plain="true" catchtap="myYhu" wx:if="{{item.isMainTain}}"
+                            data-order="{{item.orderNo}}" data-index="{{index}}" data-type="{{thisType.type}}">我的养护</button>
+                        <button class="order_cz" size="mini" plain="true" catchtap="makeSureGoods" wx:if="{{item.status=='RECEIVE'}}"
+                            data-order="{{item.orderNo}}" data-index="{{index}}" data-type="{{thisType.type}}">确认收货</button>
+                    </view>
+                </view>
+                <view wx:if="{{thisType.totalPage=='0'}}" class="noTips">暂无数据</view>
+                <view class="bottomLine"></view>
+            </view>
+        </block>
+    </view>
+
+    <!-- <view class="scrollBox">
+        <view class="scrollArea" hidden="{{!(type=='all')}}" scroll-y="true" upper-threshold="-50" lower-threshold="50"
+            scroll-top="0" scroll-with-animation="false" bindscrolltoupper="abc" bindscrolltolower="loadMore" data-type="all">
+            <view class="order_this" hover-stop-propagation="false" wx:for="{{orderListAll}}" wx:key="*this" catchtap="goOnPay"
+                data-order="{{item.orderNo}}" data-index="{{index}}" data-type="all">
+                <view class="order_num">
+                    <text class="o_num">订单号：{{item.orderNo}}</text>
+                    <text class="o_status">{{item.statusShow}}</text>
+                </view>
+                <view class="goods_info">
+                    <image class="good_img" src="{{item.pic}}" mode="aspectFill" lazy-load="true"></image>
+                    <view class="good_int">
+                        <text class="good_name">{{item.productName}}</text>
+                        <text class="good_price">¥ {{item.unitPrice}} </text>
+                        <text class="good_num">数量 1 </text>
+                    </view>
+                </view>
+                <view class="goods_total">共{{item.num}}件 合计：￥{{item.realPay}}（含运费{{item.transportFee}}元）</view>
+                <view class="btnBox" wx:if="{{item.status!='CANCEL' || item.mailNo }}">
+                    <button class="order_cz" size="mini" plain="true" catchtap="cancelOrder" wx:if="{{item.status=='PAY'}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="all">取消订单</button>
+                    <button class="order_cz " size="mini" plain="true" catchtap="goOnPay" wx:if="{{item.status=='PAY'}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="all">去支付</button>
+                    <button class="order_cz" size="mini" plain="true" catchtap="watchLogistics" wx:if="{{item.mailNo}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="all">查看物流</button>
+                    <button class="order_cz" size="mini" plain="true" catchtap="myYhu" wx:if="{{item.status!='PAY'&&item.status!='PAY_TIMEOUT'&&item.status!='CANCEL'}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="all">我的养护</button>
+                    <button class="order_cz" size="mini" plain="true" catchtap="makeSureGoods" wx:if="{{item.status=='RECEIVE'}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="all">确认收货</button>
+                </view>
+            </view>
+            <view wx:if="{{totalPageAll=='0'}}" class="noTips">暂无数据</view>
+            <view class="bottomLine"></view>
+        </view>
+
+        <view class="scrollArea" hidden="{{!(type=='curing')}}" scroll-y="true" lower-threshold="50" scroll-top="0"
+            scroll-with-animation="false" bindscrolltolower="loadMore" data-type="curing">
+            <view class="order_this" hover-stop-propagation="false" wx:for="{{orderListCuring}}" wx:key="*this"
+                catchtap="goOnPay" data-order="{{item.orderNo}}" data-index="{{index}}" data-type="curing">
+                <view class="order_num">
+                    <text class="o_num">订单号：{{item.orderNo}}</text>
+                    <text class="o_status">{{item.statusShow}}</text>
+                </view>
+                <view class="goods_info">
+                    <image class="good_img" src="{{item.pic}}" mode="aspectFill" lazy-load="true"></image>
+                    <view class="good_int">
+                        <text class="good_name">{{item.productName}}</text>
+                        <text class="good_price">¥ {{item.unitPrice}} </text>
+                        <text class="good_num">数量 1 </text>
+                    </view>
+                </view>
+                <view class="goods_total">共{{item.num}}件 合计：￥{{item.realPay}}（含运费{{item.transportFee}}元）</view>
+                <view class="btnBox" wx:if="{{item.status!='CANCEL' || item.mailNo }}">
+                    <button class="order_cz" size="mini" plain="true" catchtap="cancelOrder" wx:if="{{item.status=='PAY'}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="curing">取消订单</button>
+                    <button class="order_cz " size="mini" plain="true" catchtap="goOnPay" wx:if="{{item.status=='PAY'}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="curing">去支付</button>
+                    <button class="order_cz" size="mini" plain="true" catchtap="watchLogistics" wx:if="{{item.mailNo}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="curing">查看物流</button>
+                    <button class="order_cz" size="mini" plain="true" catchtap="myYhu" wx:if="{{item.status!='PAY'&&item.status!='PAY_TIMEOUT'&&item.status!='CANCEL'}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="curing">我的养护</button>
+                    <button class="order_cz" size="mini" plain="true" catchtap="makeSureGoods" wx:if="{{item.status=='RECEIVE'}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="curing">确认收货</button>
+                </view>
+            </view>
+            <view wx:if="{{totalPageCuring=='0'}}" class="noTips">暂无数据</view>
+            <view class="bottomLine"></view>
+        </view>
+
+        <view class="scrollArea" hidden="{{!(type=='finish')}}" scroll-y="true" lower-threshold="50" scroll-top="0"
+            scroll-with-animation="false" bindscrolltolower="loadMore" data-type="finish">
+            <view class="order_this" hover-stop-propagation="false" wx:for="{{orderListFinish}}" wx:key="*this"
+                catchtap="goOnPay" data-order="{{item.orderNo}}" data-index="{{index}}" data-type="finish">
+                <view class="order_num">
+                    <text class="o_num">订单号：{{item.orderNo}}</text>
+                    <text class="o_status">{{item.statusShow}}</text>
+                </view>
+                <view class="goods_info">
+                    <image class="good_img" src="{{item.pic}}" mode="aspectFill" lazy-load="true"></image>
+                    <view class="good_int">
+                        <text class="good_name">{{item.productName}}</text>
+                        <text class="good_price">¥ {{item.unitPrice}} </text>
+                        <text class="good_num">数量 1 </text>
+                    </view>
+                </view>
+                <view class="goods_total">共{{item.num}}件 合计：￥{{item.realPay}}（含运费{{item.transportFee}}元）</view>
+                <view class="btnBox" wx:if="{{item.status!='CANCEL' || item.mailNo }}">
+                    <button class="order_cz" size="mini" plain="true" catchtap="cancelOrder" wx:if="{{item.status=='PAY'}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="finish">取消订单</button>
+                    <button class="order_cz " size="mini" plain="true" catchtap="goOnPay" wx:if="{{item.status=='PAY'}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="finish">去支付</button>
+                    <button class="order_cz" size="mini" plain="true" catchtap="watchLogistics" wx:if="{{item.mailNo}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="finish">查看物流</button>
+                    <button class="order_cz" size="mini" plain="true" catchtap="myYhu" wx:if="{{item.status!='PAY'&&item.status!='PAY_TIMEOUT'&&item.status!='CANCEL'}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="finish">我的养护</button>
+                    <button class="order_cz" size="mini" plain="true" catchtap="makeSureGoods" wx:if="{{item.status=='RECEIVE'}}"
+                        data-order="{{item.orderNo}}" data-index="{{index}}" data-type="finish">确认收货</button>
+                </view>
+            </view>
+            <view wx:if="{{totalPageFinish=='0'}}" class="noTips">暂无数据</view>
+            <view class="bottomLine"></view>
+        </view>
+    </view> -->
+</view>
+
+
+<view class="modalDlg" bindtap="closeDlg" hidden="{{!dialog}}">
+    <view class="dlgContent" catchtap="openDlg">
+        <view class="log_name">
+            {{mailInfo.expressCodeShow}}：{{mailInfo.expressMailNo}}
+        </view>
+        <scroll-view class="log_list" scroll-y="true" scroll-top="0">
+            <view class="l_log" wx:for="{{mailInfo.orderExpressDetailVOs}}" wx:key="*this">
+                <view>{{item.detail}}</view>
+                <view>{{item.timeShow}}</view>
+            </view>
+        </scroll-view>
+        <view class="log_btn">
+            <button class="order_cz another" size="mini" plain="true" catchtap="closeDlg">关闭</button>
+        </view>
+    </view>
+</view>

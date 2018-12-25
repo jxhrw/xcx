@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="imageBox">
+    <!-- 测试：f1442abd-6668-4c95-aa14-321b52e4cf9b，线上：f1442abd-6668-4c95-aa14-321b52e4cf9b -->
+    <navigator url='../goods/goods?id=f1442abd-6668-4c95-aa14-321b52e4cf9b'>
+    <image class="banner-image" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/banner01.png" mode="widthFix"></image>
+    </navigator>
+    <!-- 测试：，线上：4c924cda-8bb2-4cc1-b2d3-777a611c94df -->
+    <navigator url='../goods/goods?id=4c924cda-8bb2-4cc1-b2d3-777a611c94df'>
+    <image class="banner-image" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/banner2.png" mode="widthFix"></image>
+    </navigator>
+    <image class="banner-image opc" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/banner3.png" mode="widthFix"></image>
+  </view>
+</view>

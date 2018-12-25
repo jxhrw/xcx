@@ -1,0 +1,305 @@
+/* pages/order_pay/order_pay.wxss */
+page {
+    background: #FAFAFA;
+    height: 100%;
+}
+
+.order_pay {
+    padding: 10rpx 30rpx 140rpx 30rpx;
+}
+
+.sgAs {
+    width: 100%;
+    background: #fff;
+    -webkit-box-shadow: 0 2rpx 12rpx 0 rgba(0, 0, 0, .08);
+    box-shadow: 0 2rpx 12rpx 0 rgba(0, 0, 0, .08);
+    border-radius: 6rpx;
+    margin-top: 20rpx;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 30rpx;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.sgAs:after {
+    content: "";
+    position: absolute;
+    height: 7rpx;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(179deg, #e6c19d, #c88e64);
+    border-radius: 0 0 6rpx 6rpx;
+}
+
+.addressDetail {
+    width: 100%;
+    padding-right: 10%;
+    background: url('https://youwatch.oss-cn-beijing.aliyuncs.com/app/arrow_right_gray.png') no-repeat center right/12rpx;
+}
+
+.address_name_mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.icon_name {
+    color: #ea3c3c;
+    display: inline-block;
+    margin-left: 20rpx;
+    font-size: 22rpx;
+    line-height: 22rpx;
+    padding: 2rpx 4rpx;
+    border-radius: 4rpx;
+    border: 1rpx solid #ea3c3c;
+}
+
+.address_location {
+    font-size: 26rpx;
+    color: #999;
+    min-height: 70rpx;
+    line-height: 35rpx;
+    margin-top: 15rpx;
+    word-wrap: break-word;
+    margin-bottom: -5rpx;
+}
+
+.goodsInfo {
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 12rpx 0 rgba(0, 0, 0, 0.04);
+    border-radius: 10rpx;
+    padding: 10rpx 30rpx;
+    margin-top: 20rpx;
+    box-sizing: border-box;
+}
+
+.imgBox {
+    padding: 30rpx 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1rpx solid rgba(230, 230, 230, 1);
+}
+
+.img_left {
+    width: 150rpx;
+    height: 150rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 4rpx;
+    border: 1rpx solid rgba(230, 230, 230, 1);
+}
+
+.img_right {
+    width: 460rpx;
+}
+
+.proName {
+    display: block;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 30rpx;
+    height: 60rpx;
+    overflow: hidden;
+    margin-top: 20rpx;
+    margin-bottom: 30rpx;
+}
+
+.proPrice {
+    font-size: 24rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 1);
+    line-height: 24rpx;
+}
+
+.numBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1rpx solid rgba(230, 230, 230, 1);
+    padding: 23rpx 0;
+}
+
+.numTxt {
+    font-size: 24rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    line-height: 24rpx;
+}
+
+.standard {
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+    line-height: 27rpx;
+    margin-left: 20rpx;
+    padding-right: 39rpx;
+    background: url('https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/more.png') no-repeat center right/27rpx;
+}
+
+.numBtn {
+    width: 210rpx;
+    height: 58rpx;
+    border-radius: 29rpx;
+    border: 1px solid rgba(216, 216, 216, 1);
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn1 {
+    height: 58rpx;
+    line-height: 58rpx !important;
+    text-align: center;
+    border: none !important;
+    display: block;
+    width: 80px;
+    padding: 0 !important;
+}
+
+.btn1::after {
+    /* border: none!important; */
+}
+
+.inpt {
+    text-align: center;
+    width: 100px;
+    height: 58rpx;
+    line-height: 58rpx;
+    border-left: 1px solid rgba(216, 216, 216, 1);
+    border-right: 1px solid rgba(216, 216, 216, 1);
+    font-size: 24rpx;
+    color: rgba(153, 153, 153, 1);
+}
+
+.freightBox {
+    border-bottom: 1rpx solid rgba(230, 230, 230, 1);
+    padding: 36rpx 0;
+}
+
+.freightBtn {
+    margin-top: 40rpx;
+}
+
+.btn2 {
+    height: 54rpx;
+    line-height: 54rpx !important;
+    border-radius: 30rpx;
+    color: #979797 !important;
+    border-color: rgba(151, 151, 151, 1) !important;
+    margin-right: 30rpx;
+    font-size: 26rpx !important;
+}
+
+.btn2.on {
+    color: #C88E64 !important;
+    border-color: rgba(200, 142, 100, 1) !important;
+}
+
+.remarkBox {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 36rpx;
+}
+
+.position {
+    position: relative;
+    top: 0rpx;
+}
+
+.remarkArea {
+    width: 85%;
+    height: 100rpx;
+    font-size: 24rpx;
+}
+
+.priceInfo {
+    padding: 34rpx 30rpx;
+    background: #fff;
+    margin-top: 23rpx;
+}
+
+.priceInfo .li {
+    display: flex;
+    justify-content: space-between;
+    line-height: 54rpx;
+}
+
+.priceInfo .li .numTxt {
+    line-height: 54rpx;
+}
+
+.priceTxt {
+    font-size: 24rpx;
+    color: rgba(51, 51, 51, 1);
+}
+
+.footerBox {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+.gradient {
+    height: 31rpx;
+    background: linear-gradient(180deg, rgba(238, 238, 238, 0) 0%, rgba(181, 181, 181, 0.96) 100%);
+    opacity: 0.057800000000000004;
+}
+
+.footer {
+    height: 100rpx;
+    background: rgba(255, 255, 255, 1);
+    padding: 0 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer_price {
+    font-size: 28rpx;
+    color: rgba(51, 51, 51, 1);
+}
+
+.footer text {
+    color: #C88E64;
+    font-weight: bold;
+}
+
+.buyBtn {
+    margin: 0;
+    width: 180rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    background: linear-gradient(60deg, rgba(200, 142, 100, 0.73) 0%, rgba(200, 142, 100, 1) 100%);
+    border-radius: 30rpx;
+    font-size: 28rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 1);
+
+}
+
+.add_ress{
+    text-align: center;
+    width: 100%;
+}
+.add_ress button{
+    background: none;
+    border-radius: 100rpx;
+}

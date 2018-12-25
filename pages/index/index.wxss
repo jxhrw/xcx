@@ -1,0 +1,17 @@
+/**index.wxss**/
+.imageBox{
+  padding: 0 20rpx 20rpx 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.imageBox image{
+  display: block;
+  width: 100%;
+  margin-top: 20rpx;
+}
+.banner-image{
+
+}
+.opc{
+  opacity: 0.7;
+}

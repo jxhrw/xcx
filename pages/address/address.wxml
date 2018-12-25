@@ -1,0 +1,19 @@
+<!--pages/address/address.wxml-->
+<view class="address">
+  <view class="tabLine"></view>
+  <view class="sgAs" wx:for="{{addList}}" wx:key="*this" bindtap="chosenChange" data-data="{{item}}">
+    <view class="addressDetail">
+      <view class="address_name_mobile">
+        <view class="address_name">{{item.person}}
+          <text class="icon_name" wx:if="{{item.deft == '1'}}">默认</text>
+        </view>
+        <text class="address_mobile">{{item.phone}}</text>
+      </view>
+      <view class="address_location">{{item.provinceShow}}{{item.cityShow}}{{item.countryShow}}{{item.address}} </view>
+    </view>
+    <view class="address_edit" catchtap="toDetail" data-ned="{{item.id}}"></view>
+  </view>
+  <button class="btn_add_address" bindtap="addressEditFuc">
+    <text class="btn-default-span">+ 添加收件地址</text>
+  </button>
+</view>

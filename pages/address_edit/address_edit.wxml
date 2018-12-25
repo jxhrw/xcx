@@ -1,0 +1,21 @@
+<!--pages/address_edit/address_edit.wxml-->
+<view class="address_edit">
+    <view class="myInfo">
+        <view class="myInfoLi"><input type="text" placeholder="收货人" value="{{person}}" bindinput="bindValueChange" data-type="person" /></view>
+        <view class="myInfoLi"><input type="number" placeholder="联系电话" value="{{phone}}" bindinput="bindValueChange" data-type="phone" maxlength="11" /></view>
+        <view class="myInfoLi right_arrow">
+            <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+                <text wx:if="{{region.length<3}}">所在地区</text>
+                <text wx:else class="on">{{region[0]}} {{region[1]}} {{region[2]}}</text>
+            </picker>
+        </view>
+        <view class="myInfoLi"><input type="text" placeholder="详细地址" value="{{address}}" bindinput="bindValueChange" data-type="address" /></view>
+    </view>
+    <view class="isDefault">
+        <text>设为默认地址</text>
+        <switch style="zoom: .8;" color="#D5A887" checked="{{deft == '1'}}" bindchange="switch2Change" />
+    </view>
+    <button class="btn_add_address" bindtap="finishEditFuc">
+        <text class="btn-default-span">保存</text>
+    </button>
+</view>

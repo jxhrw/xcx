@@ -1,0 +1,38 @@
+<!--pages/person/person.wxml-->
+<view class="person">
+  <view style='height:50rpx;'></view>
+  <view class='person_info'>
+    <image class='icon_header' src='{{userInfo.avatarUrl || "https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/icon_header.png"}}'
+      mode="widthFix"></image>
+    <text wx:if="{{userInfo.nickName}}">{{userInfo.nickName}}</text>
+    <button wx:else class='btnPower' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权头像</button>
+    <!-- <button class='btnPower floatRight' open-type="getPhoneNumber" bindgetphonenumber="bindGetPhoneNumber">点击此处授权手机号</button> -->
+  </view>
+  <view class='bg_image'>
+    <image class="left" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/icon_border_left.png" mode="aspectFill"></image>
+    <image class="right" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/icon_border_right.png" mode="aspectFill"></image>
+  </view>
+  <view class='bg_white'>
+    <view class='h6'>
+      <text>我的服务</text>
+    </view>
+    <navigator class='li' url='../curing/curing'>
+      <view class='icon1'></view>
+      <text>我的养护</text>
+    </navigator>
+        <navigator class='li' url='../address/address'>
+      <view class='icon3'></view>
+      <text>个人地址</text>
+    </navigator>
+     <!-- url='../check/check' -->
+    <navigator class='li opc'>
+      <view class='icon2'></view>
+      <text>我的鉴定</text>
+    </navigator>
+     <!-- url='../set/set' -->
+    <navigator class='li opc'>
+      <view class='icon4'></view>
+      <text>个人设置</text>
+    </navigator>
+  </view>
+</view>

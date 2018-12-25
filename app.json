@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/order_success/order_success",
+    "pages/person/person",
+    "pages/myCur/myCur",
+    
+    "pages/order_detail/order_detail",
+    "pages/order_pay/order_pay",
+    "pages/goods/goods",
+    "pages/address/address",
+    "pages/curing/curing",
+    "pages/address_edit/address_edit",
+    "pages/logs/logs",
+    "pages/set/set",
+    "pages/check/check"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "有表养护鉴定中心",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#fff",
+    "selectedColor": "#C88E64",
+    "backgroundColor": "#232321",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/image/icon_home0.png",
+        "selectedIconPath": "static/image/icon_home1.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "我的",
+        "iconPath": "static/image/icon_person0.png",
+        "selectedIconPath": "static/image/icon_person1.png"
+      }
+    ]
+  }
+}

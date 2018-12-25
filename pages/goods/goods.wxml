@@ -1,0 +1,95 @@
+<!--pages/goods/goods.wxml-->
+<view class="goods">
+    <block wx:if="{{pictureUrl.length>1}}">
+        <swiper indicator-dots="{{true}}" indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="#ffffff" circular="{{true}}">
+        <block wx:for="{{pictureUrl}}" wx:key="*this">
+            <swiper-item>
+                <image class="banner" src="{{item}}" mode="aspectFill" lazy-load="true"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    </block>
+    <block wx:else>
+        <image  class="banner" src="{{pictureUrl[0]}}" mode="aspectFill" lazy-load="true"></image>
+    </block>
+    
+    <view class="priceBox">
+        ￥<text class="price">{{priceRange}}</text>
+    </view>
+    <view class="titleBox">
+        {{name}}
+    </view>
+    <view class="division"></view>
+    <view class="goodsDesc">
+        <text>商品详情</text>
+        <view class='det_title'></view>
+        <image class="goodsImg" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/images/xcx_detail_01.png"
+            mode="widthFix" lazy-load="true"></image>
+        <image class="goodsImg" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/images/xcx_detail_02.png"
+            mode="widthFix" lazy-load="true"></image>
+        <image class="goodsImg" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/images/xcx_detail_03.png"
+            mode="widthFix" lazy-load="true"></image>
+        <image class="goodsImg" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/images/xcx_detail_04.png"
+            mode="widthFix" lazy-load="true"></image>
+        <image class="goodsImg" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/images/xcx_detail_05.png"
+            mode="widthFix" lazy-load="true"></image>
+        <image class="goodsImg" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/images/xcx_detail_06.png"
+            mode="widthFix" lazy-load="true"></image>
+        <image class="goodsImg" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/images/xcx_detail_07.png"
+            mode="widthFix" lazy-load="true"></image>
+        <image class="goodsImg" src="https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/images/xcx_detail_08.png"
+            mode="widthFix" lazy-load="true"></image>
+    </view>
+    <view class="footerBox">
+        <view class="gradient"></view>
+        <view class="footer">
+            <!-- <view class="left" bindtap="callTell">
+                <text>咨询</text>
+            </view> -->
+            <button class="left" open-type="contact">
+                <text>咨询</text>
+            </button>
+            <view class="right">
+                <button class="order_cz" size="mini" plain="true" bindtap="openDlg">购买</button>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="modalDlg" bindtap="closeDlg" hidden="{{!dialog}}">
+    <view class="dlgContent" catchtap="openDlg">
+        <view class="sku_info">
+            <image class="info_left" src="{{chosenpicPath}}" mode="aspectFill">
+
+            </image>
+            <view class="info_right">
+                <view class="priceBox dlg_price">
+                    ￥<text class="price">{{chosenPrice}}</text>
+                </view>
+                <view class="chosen">
+                    已选：{{chosenName}} {{num}}件
+                </view>
+            </view>
+        </view>
+        <scroll-view class="sku_list" scroll-y="true" scroll-top="0">
+            <view class="list_one">
+                <text class="numTxt">服务项目</text>
+                <view class="list_box">
+                    <button wx:for="{{skus}}" wx:key="*this" class="btn_service {{item.id==chosenId?'on':''}}" size="mini"
+                        plain="true" bindtap="chosenSku" data-data="{{item}}">{{item.skuType}}</button>
+                </view>
+            </view>
+            <view class="numBox">
+                <text class="numTxt">购买数量</text>
+                <view class="numBtn">
+                    <button class="btn1 btn_r" size="mini" plain="true" bindtap="changeNum" data-type="rec">-</button>
+                    <input class="inpt" value="{{num}}" type="number" bindinput="inputNum"></input>
+                    <button class="btn1 btn_a" size="mini" plain="true" bindtap="changeNum" data-type="add">+</button>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="sku_btn">
+            <button class="order_cz another" size="mini" plain="true" catchtap="orderPayUrl">购买</button>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,28 @@
+<!--pages/myCur/myCur.wxml-->
+<view class="myCur">
+    <view class="baseInfo">
+            <image src="{{pic}}" mode="aspectFill"></image>
+            <view class="info_desc">
+                <view>· 品牌 {{brandShow}}</view>
+                <view>· 系列 {{seriesShow}}</view>
+                <view>· 型号 {{modelShow}}</view>
+            </view>
+        </view>
+        <view class="curInfo">
+            <view class="cur_title">养护信息：</view>
+            <view class="cur_base">
+                <text>养护时间：{{mainTainTimeShow}}</text>
+                <text>养护项目：{{programName}}</text>
+            </view>
+            <view class="cur_img">
+                <view class="left">
+                    <view class="kind_name">养护前</view>
+                    <image wx:for="{{prePics}}" wx:key="*this" src="{{item}}" mode="aspectFill"></image>
+                </view>
+                <view class="right">
+                    <view class="kind_name">养护后</view>
+                    <image wx:for="{{lastPics}}" wx:key="*this" src="{{item}}" mode="aspectFill"></image>
+                </view>
+            </view>
+        </view>
+</view>

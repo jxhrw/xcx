@@ -1,0 +1,131 @@
+/* pages/person/person.wxss */
+
+page {
+  height: 100%;
+}
+
+.person {
+  height: 100%;
+  width: 100%;
+  background: #232321;
+}
+
+.person_info {
+  margin: auto;
+  margin-bottom: -60rpx;
+  width: 665rpx;
+  height: 278rpx;
+  background: url('https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/bg_person.png') no-repeat center/100% 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 68rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.icon_header {
+  width: 90rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.btnPower{
+  background: none;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-size: 28rpx;
+}
+.floatRight{
+  position: absolute;
+  right: 40rpx;
+}
+
+.person_info text {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium;
+  color: rgba(255, 255, 255, 1);
+}
+
+.bg_image {
+  height: 52rpx;
+  width: 690rpx;
+  margin: auto;
+}
+
+.bg_image .left, .bg_image .right {
+  display: block;
+  width: 27rpx;
+  height: 52rpx;
+}
+
+.bg_image .left {
+  float: left;
+}
+
+.bg_image .right {
+  float: right;
+}
+
+.bg_white {
+  width: 690rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin: auto;
+  background: #fff;
+  border-radius: 0 0 18rpx 18rpx;
+}
+
+.bg_white .h6 {
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: bold;
+  color: rgba(35, 35, 33, 1);
+  line-height: 30rpx;
+}
+
+.bg_white .li {
+  height: 110rpx;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 24rpx;
+  border-top: 1rpx solid #f5f6f6;
+  background: url('https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/icon_more_arraw.png') no-repeat center right/10rpx;
+}
+
+.bg_white .li.opc{
+  opacity: 0.5;
+}
+
+.icon1, .icon2, .icon3, .icon4 {
+  display: inline-block;
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 24rpx;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.icon1 {
+  background-image: url('https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/icon_curing.png');
+}
+
+.icon2 {
+  background-image: url('https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/icon_check.png');
+}
+
+.icon3 {
+  background-image: url('https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/icon_address.png');
+}
+
+.icon4 {
+  background-image: url('https://youwatch.oss-cn-beijing.aliyuncs.com/app/wechat/icon_set.png');
+}

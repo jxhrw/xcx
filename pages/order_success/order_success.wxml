@@ -1,0 +1,26 @@
+<!--pages/order_success/order_success.wxml-->
+<view class="order_success">
+    <view class="top_box">
+        <view class="page_title">订单提交成功</view>
+        <view class="order">订单号：{{orderNo}}</view>
+    </view>
+    <view class="tips">
+        <view class="tips_img">温馨提示</view>
+        <view class="tips_txt">
+            <view class="lh_30" >
+                请将需要养护的手表线下送到或快递寄付到有表北京鉴定中心。
+                <text>(快递寄送请在快递中附上订单号)</text>
+            </view>
+            <view class="lh_40">
+                <view>*有表北京养护中心邮寄地址</view>
+                <view>地址：北京市朝阳区尚都国际中心1012</view>
+                <view>电话：17710476600</view>
+                <view>收件人：朱先生</view>
+            </view>
+        </view>
+    </view>
+    <view class="bottom">
+        <button size="mini" plain="true" catchtap="goOrder">查看订单</button>
+        <button size="mini" plain="true" catchtap="goIndex">返回首页</button>
+    </view>
+</view>
