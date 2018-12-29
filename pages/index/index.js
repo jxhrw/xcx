@@ -57,5 +57,10 @@ Page({
         hasUserInfo: true
       })
     }
+  },
+  onShareAppMessage: function(e){
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   }
 })

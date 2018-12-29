@@ -29,7 +29,9 @@ Page({
     payExpireTime: 0,
     payExpireTimeShow:'',
     continue: false,
-    remark:''
+    remark:'',
+    realPay: '',
+    changePrice: ''
   },
   //继续支付
   goOnPay(e) {
@@ -237,7 +239,9 @@ Page({
         unitPrice: res.data.items.unitPrice,
         payExpireTime: res.data.items.payExpireTime?parseInt(res.data.items.payExpireTime):0,
         continue: res.data.items.payExpireTime>0,
-        remark: res.data.items.remark
+        remark: res.data.items.remark,
+        realPay: res.data.items.realPay,
+        changePrice: res.data.items.changePrice || '0'
       });
       if(this.data.payExpireTime>0){
         this.countDownTime();

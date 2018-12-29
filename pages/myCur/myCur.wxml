@@ -1,28 +1,33 @@
 <!--pages/myCur/myCur.wxml-->
 <view class="myCur">
+    <view class="tabBox">
+        <view class="scrollTab">
+            <text wx:for="{{array}}" wx:key="index" class="{{indexShow==index?'on':''}}" bindtap="chooseIndex" data-index="{{index}}">表{{index+1}}</text>
+        </view>
+    </view>
     <view class="baseInfo">
-            <image src="{{pic}}" mode="aspectFill"></image>
-            <view class="info_desc">
-                <view>· 品牌 {{brandShow}}</view>
-                <view>· 系列 {{seriesShow}}</view>
-                <view>· 型号 {{modelShow}}</view>
+        <image src="{{arrayShow.pic}}" mode="aspectFill"></image>
+        <view class="info_desc">
+            <view>· 品牌 {{arrayShow.brandShow || '暂无信息'}}</view>
+            <view>· 系列 {{arrayShow.seriesShow || '暂无信息'}}</view>
+            <view>· 型号 {{arrayShow.modelShow || '暂无信息'}}</view>
+        </view>
+    </view>
+    <view class="curInfo">
+        <view class="cur_title">养护信息：</view>
+        <view class="cur_base">
+            <text>养护时间：{{arrayShow.mainTainTimeShow}}</text>
+            <text>养护项目：{{arrayShow.programName}}</text>
+        </view>
+        <view class="cur_img">
+            <view class="left">
+                <view class="kind_name">养护前</view>
+                <image wx:for="{{arrayShow.prePics}}" wx:key="*this" src="{{item}}" mode="aspectFill" bindtap='showImg' data-src="{{item}}"></image>
+            </view>
+            <view class="right">
+                <view class="kind_name">养护后</view>
+                <image wx:for="{{arrayShow.lastPics}}" wx:key="*this" src="{{item}}" mode="aspectFill" bindtap='showImg' data-src="{{item}}"></image>
             </view>
         </view>
-        <view class="curInfo">
-            <view class="cur_title">养护信息：</view>
-            <view class="cur_base">
-                <text>养护时间：{{mainTainTimeShow}}</text>
-                <text>养护项目：{{programName}}</text>
-            </view>
-            <view class="cur_img">
-                <view class="left">
-                    <view class="kind_name">养护前</view>
-                    <image wx:for="{{prePics}}" wx:key="*this" src="{{item}}" mode="aspectFill"></image>
-                </view>
-                <view class="right">
-                    <view class="kind_name">养护后</view>
-                    <image wx:for="{{lastPics}}" wx:key="*this" src="{{item}}" mode="aspectFill"></image>
-                </view>
-            </view>
-        </view>
+    </view>
 </view>

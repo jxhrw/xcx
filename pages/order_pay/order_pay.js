@@ -30,8 +30,10 @@ Page({
     }
   },
   inputNum(e) {
+    let num = parseInt(e.detail.value);
+    num = num<1?1:num;
     this.setData({
-      num: e.detail.value
+      num: num
     })
   },
   remarkChange(e) {

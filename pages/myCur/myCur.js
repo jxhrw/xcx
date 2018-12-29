@@ -6,17 +6,39 @@ Page({
   /**
    * 页面的初始数据
    */
+  // data: {
+  //   brandShow: '',
+  //   modelShow: '',
+  //   seriesShow: '',
+  //   pic: '',
+  //   prePics: [],
+  //   lastPics: [],
+  //   mainTainTimeShow: '',
+  //   programName: '',
+  //   indexShow:0,
+  //   array:[1,2,3,4,5,6,1,2,3,4,5,6],
+  //   arrayShow:{}
+  // },
   data: {
-    brandShow: '',
-    modelShow: '',
-    seriesShow: '',
-    pic: '',
-    prePics: [],
-    lastPics: [],
-    mainTainTimeShow: '',
-    programName: ''
+    indexShow:0,
+    array:[],
+    arrayShow:{}
   },
 
+  chooseIndex(e){
+    let index = e.currentTarget.dataset['index'];
+    this.setData({
+      indexShow: index,
+      arrayShow: this.data.array[index]
+    });
+  },
+  showImg(e){
+    let img = e.currentTarget.dataset['src']
+    wx.previewImage({
+      current: img, // 当前显示图片的http链接
+      urls: [img] // 需要预览的图片http链接列表
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -24,15 +46,19 @@ Page({
     api.myMaintain({
       orderNo: options.orderNo
     }).then(res => {
+      // this.setData({
+      //   brandShow: res.data.items.brandShow || '暂无信息',
+      //   modelShow: res.data.items.modelShow || '暂无信息',
+      //   seriesShow: res.data.items.seriesShow || '暂无信息',
+      //   pic: res.data.items.pic,
+      //   prePics: res.data.items.prePics,
+      //   lastPics: res.data.items.lastPics,
+      //   mainTainTimeShow: res.data.items.mainTainTimeShow,
+      //   programName: res.data.items.programName
+      // });
       this.setData({
-        brandShow: res.data.items.brandShow || '暂无信息',
-        modelShow: res.data.items.modelShow || '暂无信息',
-        seriesShow: res.data.items.seriesShow || '暂无信息',
-        pic: res.data.items.pic,
-        prePics: res.data.items.prePics,
-        lastPics: res.data.items.lastPics,
-        mainTainTimeShow: res.data.items.mainTainTimeShow,
-        programName: res.data.items.programName
+        array: res.data.items,
+        arrayShow: res.data.items[0]
       });
     });
   },

@@ -29,17 +29,17 @@
                 <text class="numTxt">商品金额</text>
                 <text class="priceTxt">¥ {{orderPrice}} </text>
             </view>
-            <!-- <view class="li">
+            <view class="li">
                 <text class="numTxt">活动优惠</text>
-                <text class="priceTxt">¥ 27400.00 </text>
-            </view> -->
+                <text class="priceTxt">- ¥ {{changePrice}} </text>
+            </view>
             <view class="li">
                 <text class="numTxt">运费</text>
                 <text class="priceTxt">¥ {{transportFee}} </text>
             </view>
         </view>
         <view class="i_bottom">
-            总付款 <text>¥ {{orderPrice}} </text>
+            总付款 <text>¥ {{realPay}} </text>
         </view>
     </view>
     <view class="pay_sattus">

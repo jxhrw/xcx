@@ -83,7 +83,7 @@ const queryOrderFromWCAndUpdateStatus = (data) => {
 }
 //我的养护
 const myMaintain = (data) => {
-    return requestApi('GET', '/myOrderAction/myMaintain.json', data);
+    return requestApi('GET', '/myOrderAction/myMaintains.json', data);
 }
 //确认收货
 const confirmReceive = (data) => {
